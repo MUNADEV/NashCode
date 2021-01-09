@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Iniciar Sesion </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col">
+                    <form acion="" class="form-inline">
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+
+                        <label class="form-check-label mr-3">
+                            <input type="checkbox" name="recordar" id="recordar" class="form-chak-input"> Recordar Sesion
+                        </label>
+
+                        <input type="submit" class="btn-sucess" value="Iniciar Sesion">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    {# Cargamos la librería #}
+      {% load bootstrap4 %}
+ 
+      {# CSS Bootstrap #}
+      {% bootstrap_css %}
+    </body>
+</html>
