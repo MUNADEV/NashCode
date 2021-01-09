@@ -34,7 +34,7 @@ def publicacion(request):
 def perfil(request):
     return render(request,"perfil.html")
 
-def miperfl(request):
+def mi_perfil(request):
     return render(request,"miperfil.html")
 
 def editar_perfil(request):
