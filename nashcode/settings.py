@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app1',
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,10 +79,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'testdb',
-	'USER': 'postgres',
-	'PASSWORD':'admin',
-	'HOST': 'localhost',
-	'PORT': 5432,
+        'USER': 'postgres',
+        'PASSWORD':'admin',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
 
