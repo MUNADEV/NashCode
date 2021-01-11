@@ -17,6 +17,7 @@ urlpatterns = [
     #path('nashcode.com/<str:username>/publicacion/<int:id>',views.publicacion),
     path('nashcode.com/publicacion',views.publicacion),
     path('nashcode.com/<str:username>/perfil',views.perfil),
-    path('nashcode.com/<str:username>/miperfil',views.mi_perfil),
+    #path('nashcode.com/<str:username>/miperfil',views.mi_perfil),
+    path('nashcode.com/miperfil',views.mi_perfil),
     path('nashcode.com/<str:username>/editarperfil',views.editar_perfil),
 ]
