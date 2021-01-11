@@ -4,14 +4,14 @@
 	<head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Publicar</title>
+        <title>Publicacion</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
 </head>
-<body>
-	<div class="container">
+    <body>
+        <div class="container">
 		<div class="row mt -1">
 			<div class="col">
 				<form action="">
@@ -20,7 +20,7 @@
 						<div class="col" align="center">
 						
 							<p></p>
-							<h1>Nueva Publicacion</h1>
+							<h1>Publicacion</h1>
 						
 							<p></p>
 							</div>
@@ -28,34 +28,29 @@
 					</div>
 					<div class="from-group">
 						<label for="Titulo">Título</label>
-						<input type="text" class="form-control" value="Metodo Burbuja" placeholder="Titulo del documento" name="titulo" id="titulo">
+						
+						<input type="text" class="form-control" placeholder="Editar titulo del documento" name="titulo" id="titulo" value="Metodo Burbuja" readonly >
 					</div>
-
+					
+					<div class="from-group">
+						<label for="Autor">Autor:</label>
+						<a href="/">Esteban Muñoz</a> 
+					
+					</div>
 					<div class="from-group">
 						<label for="Descripcion">Descripción</label>
-						<input type="text" class="form-control" value="Metodo utilizado para ordenar arreglos" placeholder="Descripcion del codigo" name="descripcion" id="descripcion">
+						<input type="text" class="form-control" placeholder="Editar descripcion del codigo" name="descripcion" id="descripcion" value="Metodo utilizado para ordenar arreglos" readonly>
 					</div>
 
 					<div class="form-group">
-						<label for="lenguaje">Categoría</label>
-						<select name="lenguaje" id="lenguaje" class="form-control">
-							<option value="Python">Java</opcion>
-							<option value="Java">Python</opcion>
-							<option value="C">C</opcion>
-							<option value="C++">C++</opcion>
-							<option value="C#">C#</opcion>
-							<option value="JavaScript">JavaScript</opcion>
-							<option value="PHP">PHP</opcion>
-							<option value="SQL">SQL</opcion>
-							<option value="Ruby">Ruby</opcion>
-							<option value="Swift">Swift</opcion>
-						</select>
+						<label for="lenguaje">Categoría </label>
+						<input type="text" class="form-control" value="Java" readonly >
 
 					</div>
 
 					<div class="from-group">
 						<label for="Codigo">Codigo</label>
-						<textarea name="mensaje" id="mensaje" class="form-control" placeholder="Inserte el codigo aquí" rows="12" cols="12">public static void burbuja(int[] A) {
+						<textarea name="mensaje" id="mensaje" class="form-control" placeholder="Editar codigo" rows="12" cols="12" readonly>public static void burbuja(int[] A) {
     int i, j, aux;
     for (i = 0; i < A.length - 1; i++) {
         for (j = 0; j < A.length - i - 1; j++) {
@@ -70,16 +65,13 @@
 					</div>
 
 					
-					<div align="center">
-						<p></p>
-						<button align="center" class="btn btn-primary btn-lg" type="submit">Publicar</button>
-					</div>
+				
 				
 				</form>
 			</div>
 		</div>
 	</div>
-		<foote align="center">
+	<foote align="center">
 		<div align="center" class="container">
         		<div align="center" class="col-xs-12 col-md-6 ">
 				<br><br>
@@ -87,10 +79,10 @@
 			</div>
         </div>
 	</footer>
-{# Cargamos la librería #}
+      {# Cargamos la librería #}
       {% load bootstrap4 %}
  
       {# CSS Bootstrap #}
       {% bootstrap_css %}
-</body>
-</html
+    </body>
+</html>
