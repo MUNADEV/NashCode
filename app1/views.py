@@ -35,7 +35,7 @@ def perfil(request):
     return render(request,"perfil.html")
 
 def mi_perfil(request):
-    return render(request,"miperfil.html")
+    return render(request,"mi_perfil.html")
 
 def editar_perfil(request):
     return render(request,"editar_perfil.html")
