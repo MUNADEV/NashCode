@@ -12,7 +12,7 @@ urlpatterns = [
     #path('nashcode.com/<str:username>/busqueda',views.busqueda),
     path('nashcode.com/busqueda',views.busqueda),
     #path('nashcode.com/<str:username>/resultadobusqueda',views.resultado_busqueda),
-    path('nashcode.com/resultadobusqueda',views.resultado_busqueda),
+    path('nashcode.com/resultado_busqueda',views.resultado_busqueda),
     #path('nashcode.com/<str:username>/publicar',views.publicar),
     path('nashcode.com/publicar',views.publicar),
     #path('nashcode.com/<str:username>/editar/<int:id>',views.editar),
