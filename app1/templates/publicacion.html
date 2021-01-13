@@ -1,9 +1,13 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <title>Publicacion</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,36 +34,34 @@
 					<div class="row">
 						<div class="col">
 							<div class="float-right">			
-								<a type="button" href="\nashcode.com\home" class="btn btn-secondary">Menu Principal</a>
+								<a type="button" href="/home" class="btn btn-secondary">Menu Principal</a><br><br>
 							</div>
 						</div>
 					</div>
 				
-					<div class="from-group">
-						<label for="Titulo">Título</label>
-						
-						<input type="text" class="form-control" placeholder="Editar titulo del documento" name="titulo" id="titulo" value="Metodo Burbuja" readonly >
-					</div>
+					<div class="panel panel-default">
+    <div class="panel-heading">Titulo</div>
+    <div class="panel-body">Metodo Burbuja</div>
+  </div>
 					
-					<div class="from-group">
-						<label for="Autor">Autor:</label>
-						<a href="/">Esteban Muñoz</a> 
-					
-					</div>
-					<div class="from-group">
-						<label for="Descripcion">Descripción</label>
-						<input type="text" class="form-control" placeholder="Editar descripcion del codigo" name="descripcion" id="descripcion" value="Metodo utilizado para ordenar arreglos" readonly>
-					</div>
+					<div class="panel panel-default">
+    <div class="panel-heading">Autor</div>
+    <div class="panel-body"><a href="/perfil">Esteban Dido</a></div>
+  </div>
+					 <div class="panel panel-default">
+    <div class="panel-heading">Descripcion</div>
+    <div class="panel-body">metodo utilizado para ordenar arreglos</div>
+  </div>
 
-					<div class="form-group">
-						<label for="lenguaje">Categoría </label>
-						<input type="text" class="form-control" value="Java" readonly >
-
-					</div>
+					 <div class="panel panel-default">
+    <div class="panel-heading">Categoria</div>
+    <div class="panel-body">Java</div>
+  </div>
 
 					<div class="from-group">
 						<label for="Codigo">Codigo</label>
-						<textarea name="mensaje" id="mensaje" class="form-control" placeholder="Editar codigo" rows="12" cols="12" readonly>public static void burbuja(int[] A) {
+						<textarea name="mensaje" id="mensaje" class="form-control" placeholder="Editar codigo" rows="12" cols="12" readonly>
+public static void burbuja(int[] A) {
     int i, j, aux;
     for (i = 0; i < A.length - 1; i++) {
         for (j = 0; j < A.length - i - 1; j++) {
@@ -69,29 +71,23 @@
                 A[j] = aux;
             }
         }
-    } 
-}</textarea>
+    }
+}
+</textarea>
 					</div>
-
-					
-				
-				
 				</form>
+        <br><a type="button" href="/guardado" class="btn btn-secondary">Guardar</a><br><br>
 			</div>
 		</div>
 	</div>
-	<foote align="center">
-		<div align="center" class="container">
-        		<div align="center" class="col-xs-12 col-md-6 ">
-				<br><br>
-				<h6 class="text-muted lead">	©NASHCODE</h6>
-			</div>
-        </div>
-	</footer>
-      {# Cargamos la librería #}
-      {% load bootstrap4 %}
- 
-      {# CSS Bootstrap #}
-      {% bootstrap_css %}
+	<br><br><br><br>
+	<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © NASHCODE
+
+  </div>
+  <!-- Copyright -->
+</footer>
     </body>
 </html>

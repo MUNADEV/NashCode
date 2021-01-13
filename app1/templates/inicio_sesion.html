@@ -1,36 +1,38 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Iniciar Sesion </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <div class="container">
-            <div class="row mt-3">
-                <div class="col">
-                    <form acion="" class="form-inline">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+<div class="container">
+  <h2>Inicio De Sesion</h2>
+  <form action="/home">
+    <div class="form-group">
+      <label for="email">User</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Recordarme</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © NASHCODE
 
-                        <label class="form-check-label mr-3">
-                            <input type="checkbox" name="recordar" id="recordar" class="form-chak-input"> Recordar Sesion
-                        </label>
-
-                        <input type="submit" class="btn-sucess" value="Iniciar Sesion">
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-    {# Cargamos la librería #}
-      {% load bootstrap4 %}
- 
-      {# CSS Bootstrap #}
-      {% bootstrap_css %}
-    </body>
+  </div>
+  <!-- Copyright -->
+</footer>
+</body>
 </html>
