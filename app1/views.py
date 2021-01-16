@@ -1,4 +1,5 @@
-from django.shortcuts import render,HttpResponse 
+from django.shortcuts import render,HttpResponse,redirect
+from .models import Usuario, Publicacion
 
 # Create your views here.
 def index(request):
@@ -8,6 +9,20 @@ def inicio_sesion(request):
     return render(request,"inicio_sesion.html")
 
 def registro(request):
+    if request.method == "Post":
+        nombre = request.POST["nombre"]
+        alias = request.POST["alias"]
+        email = request.POST["email"]
+        password = request.POST["password"]
+
+        nuevo_usuario = Usuario()
+        nuevo_usuario.nombre = nombre
+        nuevo_usuario.alias = alias
+        nuevo_usuario.email = email
+        nuevo_usuario.password = password
+        #nuevo_usuario.save()
+        return redirect("/nashcode.com")
+
     return render(request,"registro.html")
 
 def home(request):
