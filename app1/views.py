@@ -9,7 +9,8 @@ def inicio_sesion(request):
     return render(request,"inicio_sesion.html")
 
 def registro(request):
-    if request.method == "Post":
+    if request.method == "POST":
+        print("entre por post")
         nombre = request.POST["nombre"]
         alias = request.POST["alias"]
         email = request.POST["email"]

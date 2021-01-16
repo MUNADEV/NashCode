@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
-    <head>
-        <meta charset="utf-8">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-        <title>Documento</title>
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Primera version</h1>
+<div class="container"><br>
+  <h2>Busqueda</h2>
+  <div class="row">
+						<div class="col">
+							<div class="float-right">			
+								<a type="button" href="/nashcode.com/home" class="btn btn-secondary">Menu Principal</a><br><br>
+							</div>
+						</div>
+					</div>
+  <form action="/resultado">
+    <div class="form-group">
+      <label for="usr">Titulo</label>
+      <input type="text" class="form-control" id="usr" name="username" value="Metodo Burbuja">
+    </div>
+    <br><br>
+    <div class="form-group">
+      <label for="pwd" >Categoria</label>
+      <select class="form-control" id="sel1" name="sellist1">
+        
+        <option>Java</option>
+        <option>Python</option>
+        <option>c++</option>
+      </select>
+    </div>
+    <a type="submit" href="/nashcode.com/resultado_busqueda"class="btn btn-primary">Buscar</a>
+  </form>
+</div>
 
-
-        </div>
-        {%load bootstrap4%}
-        {%bootstrap_css%}
-
-    </body>
+</body>
 </html>

@@ -1,22 +1,78 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-<html>
-    <head>
-        <meta charset="utf-8">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-        <title>Documento</title>
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Primera version</h1>
+<div class="container">
+	<div class="row mt -1">
+			<div class="col">
+			
+      
+					<div class="container">
+					<div class="row">
+						<div class="col" align="center">
+						
+							<p></p>
+							<h2>Edicion De Perfil</h2>
+						
+							<p></p>
+							</div>
+					</div>
+					</div>
+				
+					<div class="row">
+						<div class="col">
+							<div class="float-right">			
+								<a type="button" href="/nashcode.com/home" class="btn btn-secondary">Menu Principal</a><br><br>
+							</div>
+						</div>
+					</div>
+  <form action="/miperfil">
+    <div class="form-group">
+      <label for="usr">Nombre:</label>
+      <input type="text" class="form-control" id="usr" name="username" value="Esteban Gutierrez">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Alias:</label>
+      <input type="text" class="form-control" id="pwd" name="password" value="Esteban_Dido">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Correo:</label>
+      <input type="text" class="form-control" id="pwd" name="password" value="gutierrees@gmail.com">
+    </div>
+
+        <div align="center">
+						<p></p>
+						<a href="/nashcode.com/home" class="btn btn-primary btn-lg">Confirmar Cambios</a>
+	    	</div>
+  </form>
 
 
-        </div>
-        {%load bootstrap4%}
-        {%bootstrap_css%}
+    </div>
+  </div>
+</div>
 
-    </body>
+
+<p>&nbsp</p>
+<p>&nbsp</p>
+<p>&nbsp</p>
+<p>&nbsp</p>
+<p>&nbsp</p>
+      <footer class="bg-light text-center text-lg-start">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © NASHCODE
+
+      </div>
+      <!-- Copyright -->
+    </footer>
+</body>
 </html>
