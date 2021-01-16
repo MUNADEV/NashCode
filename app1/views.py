@@ -21,8 +21,9 @@ def registro(request):
         nuevo_usuario.alias = alias
         nuevo_usuario.email = email
         nuevo_usuario.password = password
+        nuevo_usuario.likes = 0
         #nuevo_usuario.save()
-        return redirect("/nashcode.com")
+        return redirect("/nashcode.com/home")
 
     return render(request,"registro.html")
 
