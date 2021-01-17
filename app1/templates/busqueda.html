@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -8,36 +9,61 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+		footer {
+			background-color: black;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 40px;
+			color: black;
+		}
+  </style>
 </head>
+
 <body>
 
-<div class="container"><br>
-  <h2>Busqueda</h2>
-  <div class="row">
-						<div class="col">
-							<div class="float-right">			
-								<a type="button" href="/nashcode.com/home" class="btn btn-secondary">Menu Principal</a><br><br>
-							</div>
-						</div>
-					</div>
-  <form action="/resultado">
-    <div class="form-group">
-      <label for="usr">Titulo</label>
-      <input type="text" class="form-control" id="usr" name="username" value="Metodo Burbuja">
+  <div class="container"><br>
+    <h2>Busqueda</h2>
+    <div class="row">
+      <div class="col">
+        <div class="float-right">
+          <a type="button" href="/nashcode.com/home" class="btn btn-secondary">Menu Principal</a><br><br>
+        </div>
+      </div>
     </div>
-    <br><br>
-    <div class="form-group">
-      <label for="pwd" >Categoria</label>
-      <select class="form-control" id="sel1" name="sellist1">
-        
-        <option>Java</option>
-        <option>Python</option>
-        <option>c++</option>
-      </select>
-    </div>
-    <a type="submit" href="/nashcode.com/resultado_busqueda"class="btn btn-primary">Buscar</a>
-  </form>
-</div>
+    <form action="/nashcode.com/resultado_busqueda" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="usr">Titulo</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" maxlength="30">
+      </div>
+      <br><br>
+      <div class="form-group">
+        <label for="pwd">Categoria</label>
+        <select class="form-control" id="categoria" name="categoria">
+          <option value="Texto">Texto</opcion>
+          <option value="Python">Python</opcion>
+          <option value="Java">Java</opcion>
+          <option value="C">C</opcion>
+          <option value="C++">C++</opcion>
+          <option value="C#">C#</opcion>
+          <option value="JavaScript">JavaScript</opcion>
+          <option value="PHP">PHP</opcion>
+          <option value="SQL">SQL</opcion>
+          <option value="Ruby">Ruby</opcion>
+          <option value="Swift">Swift</opcion>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg">Buscar</button>
+    </form>
+  </div>
 
+  <footer class="bg-light text-center text-lg-start">
+			<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+				© NASHCODE
+			</div>
+		</footer>
 </body>
+
 </html>
