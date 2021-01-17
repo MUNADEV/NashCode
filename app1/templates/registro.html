@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 	<head>
@@ -17,7 +17,8 @@
 	<div class="container">
 		<div class="row mt -3">
 			<div class="col">
-				<form action="">
+				<form action="/nashcode.com/registro", method="POST">
+					{% csrf_token %}
 				
 					<div class="container">
 					<div class="row">
@@ -30,40 +31,37 @@
 							</div>
 					</div>
 					</div>
-				
-				
-				
 					<div class="from-group">
 						<label for="nombre">Nombre</label>
-						<input type="text" class="form-control" value="Esteban Gutierrez" placeholder="Ingrese su nombre" name="nombre" id="nombre">
+						<input type="text" class="form-control" placeholder="Ingrese su nombre" name="nombre" id="nombre" minlength="5" maxlength="60">
 					</div>
 
 					<div class="from-group">
 						<label for="alias">Alías</label>
-						<input type="text" class="form-control" value="Esteban_Dido" placeholder="Ingrese un seudonimo " name="alias" id="alias">
+						<input type="text" class="form-control" placeholder="Ingrese un seudonimo " name="alias" id="alias" minlength="3" maxlength="20">
 					</div>
 
 					<div class="from-group">
 						<label for="email">Email</label>
-						<input type="text" class="form-control" value="gutierrees@gmail.com" placeholder="Ingrese un correo electronico" name="email" id="email">
+						<input type="text" class="form-control" placeholder="Ingrese un correo electronico" name="email" id="email" minlength="3" maxlength="60">
 					</div>
 
 					<div class="from-group">
 						<label for="Password">Contraseña</label>
-						<input type="password" class="form-control" value="adsklfñjasd" placeholder="Ingrese una contraseña" name="password" id="password">
+						<input type="password" class="form-control" placeholder="Ingrese una contraseña" name="password" id="password" minlength="3" maxlength="10">
 					</div>
 					<div align="center">
 						<p></p>
-						<a href="/nashcode.com/home" class="btn btn-primary btn-lg">Registrarse</a>
+						<button type="submit" class="btn btn-primary">Registrarse</button>
 					</div>
 				
 				</form>
 			</div>
 		</div>
 	</div><br><br><br><br>
-	<p>&nbsp</p>
-<p>&nbsp</p>
-<p>&nbsp</p>
+	<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <footer class="bg-light text-center text-lg-start">
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
