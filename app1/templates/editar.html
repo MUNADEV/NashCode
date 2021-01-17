@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 	<head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Editar publicacion</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Editar publicacion</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	</head>
 </head>
+
 <body>
 
 	<div class="container">
 		<div class="row mt -1">
 			<div class="col">
-				<form action="">
-
+				<form action="/nashcode.com/editar/{{publicacion.id_publicacion}}" method="POST">
+					{% csrf_token %}
 					<div class="container">
 						<div class="row">
 							<div class="col" align="center">
-						  		<div class="btn-group col-md-4" role="group">
-       
-    							
-							<p></p>
-							<h1>Editar Publicacion</h1>
-						
-							<p></p>
+								<div class="btn-group col-md-4" role="group">
+
+
+									<p></p>
+									<h1>Editar Publicacion</h1>
+
+									<p></p>
 								</div>
 							</div>
 						</div>
@@ -37,28 +40,32 @@
 
 					<div class="row">
 						<div class="col">
-							<div class="float-right">			
+							<div class="float-right">
 								<a type="button" href="\nashcode.com\home" class="btn btn-secondary">Menu Principal</a>
 							</div>
 						</div>
 					</div>
 
-
 					<div class="from-group">
 						<label for="Titulo">Editar Título</label>
-						<input type="text" class="form-control" value="Metodo Burbuja" placeholder="Editar titulo del documento" name="titulo" id="titulo">
+						<input type="text" class="form-control" value="{{publicacion.titulo}}"
+							placeholder="Editar titulo del documento" name="titulo" id="titulo" minlength="3" maxlength="30">
 					</div>
 
 					<div class="from-group">
 						<label for="Descripcion">Editar Descripción</label>
-						<input type="text" class="form-control"  value="Metodo utilizado para ordenar arreglos" placeholder="Descripcion del codigo" placeholder="Editar descripcion del codigo" name="descripcion" id="descripcion">
+						<input type="text" class="form-control" value="{{publicacion.descripcion}}"
+							placeholder="Descripcion del codigo" placeholder="Editar descripcion del codigo"
+							name="descripcion" id="descripcion" minlength="3" maxlength="140">
 					</div>
 
 					<div class="form-group">
 						<label for="lenguaje">Editar categoría</label>
-						<select name="lenguaje" id="lenguaje" class="form-control">
-							<option value="Python">Java</opcion>
-							<option value="Java">Python</opcion>
+						<select name="categoria" id="categoria" class="form-control">
+							<option value="{{publicacion.categoria}}">{{publicacion.categoria}}</option>
+							<option value="Texto">Texto</opcion>
+							<option value="Python">Python</opcion>
+							<option value="Java">Java</opcion>
 							<option value="C">C</opcion>
 							<option value="C++">C++</opcion>
 							<option value="C#">C#</opcion>
@@ -73,38 +80,29 @@
 
 					<div class="from-group">
 						<label for="Codigo">Editar codigo</label>
-						<textarea name="mensaje" id="mensaje" class="form-control" placeholder="Editar codigo" rows="12" cols="12">public static void burbuja(int[] A) {
-    int i, j, aux;
-    for (i = 0; i < A.length - 1; i++) {
-        for (j = 0; j < A.length - i - 1; j++) {
-            if (A[j + 1] < A[j]) {
-                aux = A[j + 1];
-                A[j + 1] = A[j];
-                A[j] = aux;
-            }
-        }
-    } 
-}</textarea>
+						<textarea name="codigo" id="codigo" class="form-control" placeholder="Editar codigo" rows="12"
+							cols="12" minlength="3" maxlength="800">{{publicacion.codigo}}</textarea>
 					</div>
 
-					
+
 					<div align="center">
 						<p></p>
-						<a href="\nashcode.com\home" class="btn btn-primary btn-lg">Confirmar Editado</a>
+						<button type="submit" class="btn btn-primary btn-lg">Confirmar Editado</button>
 					</div>
-				
+
 				</form>
 			</div>
 		</div>
 	</div>
 	<p>&nbsp</p>
 	<footer class="bg-light text-center text-lg-start">
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-    © NASHCODE
+		<!-- Copyright -->
+		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+			© NASHCODE
 
-  </div>
-  <!-- Copyright -->
-</footer>
+		</div>
+		<!-- Copyright -->
+	</footer>
 </body>
+
 </html

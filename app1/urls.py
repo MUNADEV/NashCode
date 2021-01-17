@@ -12,7 +12,6 @@ urlpatterns = [
     path('nashcode.com/publicar',views.publicar),
     path('nashcode.com/editar/<int:id>',views.editar),
     path('nashcode.com/publicacion/<int:id>',views.publicacion),
-    path('nashcode.com/perfil',views.perfil),
-    path('nashcode.com/mi_perfil',views.mi_perfil),
+    path('nashcode.com/perfil/<int:id>',views.perfil),
     path('nashcode.com/editar_perfil',views.editar_perfil),
 ]
