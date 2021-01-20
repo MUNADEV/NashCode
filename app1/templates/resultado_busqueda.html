@@ -55,7 +55,7 @@
         <tr>
           <td><a href="/nashcode.com/publicacion/{{Publicacion.id_publicacion}}">{{Publicacion.titulo}}</a></td>
           <td>{{Publicacion.fecha_modificacion|date:'d-m-Y'}} </td>
-          <td><a href="/nashcode.com/editar/{{Publicacion.id_publicacion}}">Editar</a></td>
+          <td><a href="/nashcode.com/perfil/{{Publicacion.usuario.id_usuario}}">{{Publicacion.usuario.alias}}</a></td>
         </tr>
         {% endfor %}
       </tbody>

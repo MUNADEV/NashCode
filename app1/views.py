@@ -66,8 +66,6 @@ def guardado(request):
     return render(request,"guardado.html")
 
 def busqueda(request):
-    #if usuario_actual.logeado == False:
-    #   return redirect("/nashcode.com")
 
     return render(request,"busqueda.html")
 
