@@ -4,14 +4,14 @@
 	<head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link href="summernote-bs4.css" rel="stylesheet">
+
         <title>Publicar</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        
 		<style>
 		footer {
 			background-color: black;
@@ -79,27 +79,38 @@
 
 				</div>
 
-				<div class="from-group">
+				<div class="form-group">
 					<label for="Codigo">Codigo</label>
-					<textarea name="codigo" id="codigo" class="form-control" placeholder="Inserte el codigo aquí" rows="12" cols="12" minlength="3" maxlength="800"></textarea>
+					<textarea name="codigo" id="summernote" class="form-control" placeholder="Inserte el codigo aquí" rows="20" cols="20" minlength="3" maxlength="800"></textarea>
 				</div>
 
-								
-				<div align="center">
-					<p></p>
-					<button type="submit" class="btn btn-primary btn-lg">Publicar</button>
+				<div class="form-group" align="center">
+					<button class="btn btn-primary btn-lgs">Publicar</button>
+
 				</div>
 			</form>
 
 			</div>
 		</div>
 	</div>
-
-	<footer class="bg-light text-center text-lg-start">
+		
+	
 		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
 			© NASHCODE
 		</div>
-	</footer>
-	
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  		<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+		
+		<script src="summernote-bs4.js"></script>
+		<script>
+			$('#summernote').summernote({
+				height:300
+			});
+		</script>
+
 </body>
 </html

@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Usuario(models.Model):
     id_usuario = models.AutoField(primary_key = True)
@@ -15,7 +16,8 @@ class Publicacion(models.Model):
     usuario = models.ForeignKey(Usuario, null = True, blank = True, on_delete = models.CASCADE)
     titulo = models.CharField(max_length = 30)
     codigo = models.TextField()
-    descripcion = models.TextField()
+    #descripcion = models.TextField()
+    descripcion = RichTextField(blank = True,null = True)
     categoria = models.CharField(max_length = 10)
     likes = models.IntegerField()
     fecha_creacion = models.DateTimeField(auto_now_add = True)

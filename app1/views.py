@@ -130,9 +130,12 @@ def editar(request,id):
         return redirect("/nashcode.com/home")
 
     publicacion = Publicacion.objects.get(id_publicacion = id)
-    
+    html1 = "<html><head></head><body>"
+    html2 = "<html></body></html>"
     contexto = {
-        "publicacion" : publicacion
+        "publicacion" : publicacion,
+        "html1" : html1,
+        "html2" : html2
     }
     return render(request,"editar.html",contexto)
 
@@ -142,10 +145,13 @@ def publicacion(request,id):
 
     publicacion = Publicacion.objects.get(id_publicacion = id)
     usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
-
+    html1 = "<!DOCTYPE html><html><head></head><body>"
+    html2 = "<html></body></html>"
     contexto = {
         "publicacion" : publicacion,
-        "usuario" : usuario
+        "usuario" : usuario,
+        "html1" : html1,
+        "html2" : html2
     }
     return render(request,"publicacion.html",contexto)
 
