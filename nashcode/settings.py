@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'nashcode.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'testdb',
+        'NAME': 'nashdb',
         'USER': 'postgres',
         'PASSWORD':'admin',
         'HOST': 'localhost',

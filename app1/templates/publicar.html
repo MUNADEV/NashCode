@@ -81,7 +81,12 @@
 
 				<div class="form-group">
 					<label for="Codigo">Codigo</label>
-					<textarea name="codigo" id="summernote" class="form-control" placeholder="Inserte el codigo aquí" rows="20" cols="20" minlength="3" maxlength="800"></textarea>
+					<textarea name="codigo" id="summernote1" class="form-control" placeholder="Inserte el codigo aquí" rows="20" cols="20" minlength="3" maxlength="2000"></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="Codigo">Referencia</label>
+					<textarea name="referencia" id="summernote2" class="form-control" placeholder="Ingrese una referencia del codigo aquí" rows="20" cols="20" minlength="3" maxlength="800"></textarea>
 				</div>
 
 				<div class="form-group" align="center">
@@ -107,8 +112,13 @@
 		
 		<script src="summernote-bs4.js"></script>
 		<script>
-			$('#summernote').summernote({
+			$('#summernote1').summernote({
 				height:300
+			});
+		</script>
+		<script>
+			$('#summernote2').summernote({
+				height:100
 			});
 		</script>
 

@@ -86,10 +86,15 @@
 
                 <div class="from-group">
                     <label for="Codigo">Editar codigo</label>
-                    <textarea name="codigo" id="summernote" class="form-control" placeholder="Editar codigo" rows="12"
-                    cols="12" minlength="3" maxlength="800">{{publicacion.codigo}}</textarea>
+                    <textarea name="codigo" id="summernote1" class="form-control" placeholder="Editar codigo" rows="12"
+                    cols="12" minlength="3" maxlength="2000">{{publicacion.codigo}}</textarea>
                 </div>
 
+                <div class="from-group">
+                    <label for="Referencia">Editar Referencia</label>
+                    <textarea name="referencia" id="summernote2" class="form-control" placeholder="Editar codigo" rows="12"
+                    cols="12" minlength="3" maxlength="800">{{publicacion.referencia}}</textarea>
+                </div>
 
                 <div align="center">
                 <p></p>
@@ -114,7 +119,12 @@
 		
 		<script src="summernote-bs4.js"></script>
 		<script>
-			$('#summernote').summernote();
+			$('#summernote1').summernote();
+		</script>
+        <script>
+			$('#summernote2').summernote({
+				height:100
+			});
 		</script>
     </body>
 

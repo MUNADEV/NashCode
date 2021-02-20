@@ -97,6 +97,7 @@ def publicar(request):
         codigo = request.POST["codigo"]
         descripcion = request.POST["descripcion"]
         categoria = request.POST["categoria"]
+        referencia = request.POST["referencia"]
     
         nueva_publicacion = Publicacion()
         nueva_publicacion.usuario = usuario
@@ -104,6 +105,7 @@ def publicar(request):
         nueva_publicacion.codigo = codigo
         nueva_publicacion.descripcion = descripcion
         nueva_publicacion.categoria = categoria
+        nueva_publicacion.referencia = referencia
         nueva_publicacion.likes = 0
         nueva_publicacion.save()
         return redirect("/nashcode.com/home")
@@ -117,25 +119,23 @@ def editar(request,id):
     if request.method == "POST":
 
         titulo = request.POST["titulo"]
-        codigo = request.POST["codigo"]
         descripcion = request.POST["descripcion"]
         categoria = request.POST["categoria"]
+        codigo = request.POST["codigo"]
+        referencia = request.POST["referencia"]
 
         actualizar_publicacion = Publicacion.objects.get(id_publicacion = id)
         actualizar_publicacion.titulo = titulo
-        actualizar_publicacion.codigo = codigo
         actualizar_publicacion.descripcion = descripcion
         actualizar_publicacion.categoria = categoria
+        actualizar_publicacion.codigo = codigo
+        actualizar_publicacion.referencia = referencia
         actualizar_publicacion.save()
         return redirect("/nashcode.com/home")
 
     publicacion = Publicacion.objects.get(id_publicacion = id)
-    html1 = "<html><head></head><body>"
-    html2 = "<html></body></html>"
     contexto = {
         "publicacion" : publicacion,
-        "html1" : html1,
-        "html2" : html2
     }
     return render(request,"editar.html",contexto)
 
@@ -145,13 +145,9 @@ def publicacion(request,id):
 
     publicacion = Publicacion.objects.get(id_publicacion = id)
     usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
-    html1 = "<!DOCTYPE html><html><head></head><body>"
-    html2 = "<html></body></html>"
     contexto = {
         "publicacion" : publicacion,
-        "usuario" : usuario,
-        "html1" : html1,
-        "html2" : html2
+        "usuario" : usuario
     }
     return render(request,"publicacion.html",contexto)
 
