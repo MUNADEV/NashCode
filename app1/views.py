@@ -78,7 +78,7 @@ def resultado_busqueda(request):
         categoria = request.POST["categoria"]
         publicacion_list = Publicacion.objects.filter(titulo__contains=titulo,categoria__contains=categoria)
 
-        contexto = {
+        contexto = { 
             "titulo" : titulo,
             "categoria" : categoria,
             "publicacion_list" : publicacion_list
