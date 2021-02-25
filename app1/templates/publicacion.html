@@ -1,91 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Publicacion</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
    
 
-</head>
+    <title>Publicacion</title>
 
-<body>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
 
-  <div class="container">
-    <div class="row mt -1">
-      <div class="col">
-        <form action="">
-          <div class="container">
+  <body>
+    <div class="container">
+      <div class="row mt -1">
+        <div class="col">
+          <form action="">
+            <div class="container">
+              <div class="row">
+                <div class="col" align="center">
+                  <p></p>
+                  <h1>Publicacion</h1>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
-              <div class="col" align="center">
-
-                <p></p>
-                <h1>Publicacion</h1>
-
-                <p></p>
+              <div class="col">
+                <div class="float-right">
+                  <a
+                    type="button"
+                    href="/nashcode.com/home"
+                    class="btn btn-secondary"
+                    >Menu Principal</a
+                  ><br /><br />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col">
-              <div class="float-right">
-                <a type="button" href="/nashcode.com/home" class="btn btn-secondary">Menu Principal</a><br><br>
+            <div class="panel panel-default">
+              <div class="panel-heading">Titulo</div>
+              <div class="panel-body">{{publicacion.titulo}}</div>
+            </div>
+
+            {% if usuario != publicacion.usuario %}
+            <div class="panel panel-default">
+              <div class="panel-heading">Autor</div>
+              <div class="panel-body">
+                <a
+                  href="/nashcode.com/perfil/{{publicacion.usuario.id_usuario}}"
+                  >{{publicacion.usuario.alias}}</a
+                >
               </div>
             </div>
-          </div>
+            {% endif %}
 
+            <div class="panel panel-default">
+              <div class="panel-heading">Descripcion</div>
+              <div class="panel-body">{{publicacion.descripcion}}</div>
+            </div>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">Titulo</div>
-            <div class="panel-body"> {{publicacion.titulo}}</div>
-          </div>
-          {% if usuario != publicacion.usuario %}
-          <div class="panel panel-default">
-            <div class="panel-heading">Autor</div>
-            <div class="panel-body"><a
-                href="/nashcode.com/perfil/{{publicacion.usuario.id_usuario}}">{{publicacion.usuario.alias}}</a></div>
-          </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">Categoria</div>
+              <div class="panel-body">{{publicacion.categoria}}</div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">Codigo</div>
+              <div class="panel-body">{{publicacion.codigo|safe}}</div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">Referencia</div>
+              <div class="panel-body">{{publicacion.referencia|safe}}</div>
+            </div>
+          </form>
+
+          {% if usuario != publicacion.usuario and relacion.guardado == 0 %}
+          <br /><a
+            type="button"
+            href="/nashcode.com/guardar/{{publicacion.id_publicacion}}"
+            class="btn btn-secondary"
+            >Guardar</a
+          ><br /><br />
+
+          {% elif usuario != publicacion.usuario and relacion.guardado == 1 %}
+          <br /><a
+            type="button"
+            href="/nashcode.com/desguardar/{{publicacion.id_publicacion}}"
+            class="btn btn-secondary"
+            >Ya no Guardar</a
+          ><br /><br />
+
           {% endif %}
-          <div class="panel panel-default">
-            <div class="panel-heading">Descripcion</div>
-            <div class="panel-body">{{publicacion.descripcion}}</div>
-          </div>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">Categoria</div>
-            <div class="panel-body">{{publicacion.categoria}}</div>
-          </div>
+          {% if usuario != publicacion.usuario and relacion.like == 0 %}
+          <br /><a
+            type="button"
+            href="/nashcode.com/like/{{publicacion.id_publicacion}}"
+            class="btn btn-secondary"
+            >Me Gusta</a
+          ><br /><br />
 
-          <div class="from-group">
-            <label for="Codigo">Codigo</label>
-            <textarea name="mensaje" id="mensaje" class="form-control" placeholder="Editar codigo" rows="12" cols="12"
-              readonly>{{publicacion.codigo}}</textarea>
-          </div>
-        </form>
-        {% if usuario != publicacion.usuario %}
-        <br><a type="button" href="/nashcode.com/guardado" class="btn btn-secondary">Guardar</a><br><br>
-        {% endif %}
+          {% elif usuario != publicacion.usuario and relacion.like == 1 %}
+          <br /><a
+            type="button"
+            href="/nashcode.com/dislike/{{publicacion.id_publicacion}}"
+            class="btn btn-secondary"
+            >Ya no Me Gusta</a
+          ><br /><br />
+
+          {% endif %}
+        </div>
       </div>
     </div>
-  </div>
- <p>&nbsp;</p>
 
-  <footer class="bg-light text-center text-lg-start">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      © NASHCODE
-    </div>
-  </footer>
+    
+    <footer class="bg-light text-center text-lg-start">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © NASHCODE
+      </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-</body>
-
+  </body>
 </html>

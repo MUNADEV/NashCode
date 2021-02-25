@@ -5,10 +5,12 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+
   <style>
 		footer {
 			background-color: black;
@@ -24,7 +26,9 @@
 <body>
 
   <div class="container"><br>
+    
     <h2>Busqueda</h2>
+    
     <div class="row">
       <div class="col">
         <div class="float-right">
@@ -32,13 +36,17 @@
         </div>
       </div>
     </div>
+
     <form action="/nashcode.com/resultado_busqueda" method="POST">
       {% csrf_token %}
+
       <div class="form-group">
         <label for="usr">Titulo</label>
         <input type="text" class="form-control" id="titulo" name="titulo" maxlength="30">
       </div>
+
       <br><br>
+
       <div class="form-group">
         <label for="pwd">Categoria</label>
         <select class="form-control" id="categoria" name="categoria">
@@ -55,15 +63,21 @@
           <option value="Swift">Swift</opcion>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary btn-lg">Buscar</button>
+        <button type="submit" class="btn btn-primary btn-lg">Buscar</button>
+      </div>
     </form>
+
   </div>
 
   <footer class="bg-light text-center text-lg-start">
-			<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-				© NASHCODE
-			</div>
-		</footer>
+		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+			© NASHCODE
+		</div>
+	</footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

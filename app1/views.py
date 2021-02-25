@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
-from .models import Usuario, Publicacion
+from .models import Usuario, Publicacion, Relacion
 
 # Create your views here.
 class Usuario_actual:
@@ -63,11 +63,20 @@ def home(request):
     return render(request,"home.html",contexto)
 
 def guardado(request):
-    return render(request,"guardado.html")
+    if usuario_actual.logeado == False:
+        return redirect("/nashcode.com")
+
+    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
+    guardadas = Relacion.objects.filter(usuario = usuario, guardado = 1)
+
+    contexto = {
+        "guardadas" : guardadas
+    }
+    return render(request,"guardado.html",contexto)
 
 def busqueda(request):
-    #if usuario_actual.logeado == False:
-    #   return redirect("/nashcode.com")
+    if usuario_actual.logeado == False:
+        return redirect("/nashcode.com")
 
     return render(request,"busqueda.html")
 
@@ -80,7 +89,7 @@ def resultado_busqueda(request):
         categoria = request.POST["categoria"]
         publicacion_list = Publicacion.objects.filter(titulo__contains=titulo,categoria__contains=categoria)
 
-        contexto = {
+        contexto = { 
             "titulo" : titulo,
             "categoria" : categoria,
             "publicacion_list" : publicacion_list
@@ -99,6 +108,7 @@ def publicar(request):
         codigo = request.POST["codigo"]
         descripcion = request.POST["descripcion"]
         categoria = request.POST["categoria"]
+        referencia = request.POST["referencia"]
     
         nueva_publicacion = Publicacion()
         nueva_publicacion.usuario = usuario
@@ -106,6 +116,7 @@ def publicar(request):
         nueva_publicacion.codigo = codigo
         nueva_publicacion.descripcion = descripcion
         nueva_publicacion.categoria = categoria
+        nueva_publicacion.referencia = referencia
         nueva_publicacion.likes = 0
         nueva_publicacion.save()
         return redirect("/nashcode.com/home")
@@ -119,22 +130,23 @@ def editar(request,id):
     if request.method == "POST":
 
         titulo = request.POST["titulo"]
-        codigo = request.POST["codigo"]
         descripcion = request.POST["descripcion"]
         categoria = request.POST["categoria"]
+        codigo = request.POST["codigo"]
+        referencia = request.POST["referencia"]
 
         actualizar_publicacion = Publicacion.objects.get(id_publicacion = id)
         actualizar_publicacion.titulo = titulo
-        actualizar_publicacion.codigo = codigo
         actualizar_publicacion.descripcion = descripcion
         actualizar_publicacion.categoria = categoria
+        actualizar_publicacion.codigo = codigo
+        actualizar_publicacion.referencia = referencia
         actualizar_publicacion.save()
         return redirect("/nashcode.com/home")
 
     publicacion = Publicacion.objects.get(id_publicacion = id)
-    
     contexto = {
-        "publicacion" : publicacion
+        "publicacion" : publicacion,
     }
     return render(request,"editar.html",contexto)
 
@@ -145,11 +157,87 @@ def publicacion(request,id):
     publicacion = Publicacion.objects.get(id_publicacion = id)
     usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
 
+    
+    if Relacion.objects.filter(usuario=usuario,publicacion=publicacion).exists() == False:
+        nueva_relacion = Relacion()
+        nueva_relacion.usuario = usuario
+        nueva_relacion.publicacion = publicacion
+        nueva_relacion.like = 0
+        nueva_relacion.guardado = 0
+        nueva_relacion.save()
+
+    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
+    
     contexto = {
         "publicacion" : publicacion,
-        "usuario" : usuario
+        "usuario" : usuario,
+        "relacion" : relacion
     }
     return render(request,"publicacion.html",contexto)
+
+def guardar(request,id):
+    if usuario_actual.logeado == False:
+        return redirect("/nashcode.com")
+
+    publicacion = Publicacion.objects.get(id_publicacion = id)
+    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
+
+    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
+    relacion.guardado = 1
+    relacion.save()
+
+    return redirect("/nashcode.com/publicacion/"+str(id))
+
+def desguardar(request,id):
+    if usuario_actual.logeado == False:
+        return redirect("/nashcode.com")
+
+    publicacion = Publicacion.objects.get(id_publicacion = id)
+    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
+
+    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
+    relacion.guardado = 0
+    relacion.save()
+
+    return redirect("/nashcode.com/publicacion/"+str(id))
+
+def like(request,id):
+    if usuario_actual.logeado == False:
+        return redirect("/nashcode.com")
+
+    publicacion = Publicacion.objects.get(id_publicacion = id)
+    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
+    
+    publicacion.likes += 1
+    publicacion.save()
+
+    publicacion.usuario.likes += 1
+    publicacion.usuario.save()
+
+    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
+    relacion.like = 1
+    relacion.save()
+
+    return redirect("/nashcode.com/publicacion/"+str(id))
+
+def dislike(request,id):
+    if usuario_actual.logeado == False:
+        return redirect("/nashcode.com")
+        
+    publicacion = Publicacion.objects.get(id_publicacion = id)
+    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
+    
+    publicacion.likes -= 1
+    publicacion.save()
+
+    publicacion.usuario.likes -= 1
+    publicacion.usuario.save()
+
+    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
+    relacion.like = 0
+    relacion.save()
+
+    return redirect("/nashcode.com/publicacion/"+str(id))
 
 def perfil(request,id):
     if usuario_actual.logeado == False:

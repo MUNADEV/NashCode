@@ -1,79 +1,111 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style>
-		footer {
-			background-color: black;
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			height: 40px;
-			color: black;
-		}
-  </style>
-</head>
-<body>
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
 
+    <style>
+      footer {
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
     <div class="container">
       <div class="row mt -1">
-          <div class="col">
-          
-          
-              <div class="container">
-                <div class="row">
-                  <div class="col" align="center">
+        <div class="col">
+          <div class="container">
+            <div class="row">
+              <div class="col" align="center">
+                <p></p>
+                <h2>Edicion De Perfil</h2>
 
-                    <p></p>
-                    <h2>Edicion De Perfil</h2>
-                  
-                    <p></p>
-                  </div>
-                </div>
+                <p></p>
               </div>
-            
-              <div class="row">
-                <div class="col">
-                  <div class="float-right">			
-                    <a type="button" href="/nashcode.com/home" class="btn btn-secondary">Menu Principal</a><br><br>
-                  </div>
-                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="float-right">
+                <a
+                  type="button"
+                  href="/nashcode.com/home"
+                  class="btn btn-secondary"
+                  >Menu Principal</a
+                ><br /><br />
               </div>
-      <form action="/nashcode.com/editar_perfil" method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-          <label for="usr">Nombre:</label>
-          <input type="text" class="form-control" id="nombre" name="nombre" value="{{usuario.nombre}}" minlength="5" maxlength="60">
-        </div>
-        <div class="form-group">
-          <label for="alias">Alias:</label>
-          <input type="text" class="form-control" id="alias" name="alias" value="{{usuario.alias}}" minlength="3" maxlength="20">
-        </div>
-        <div class="form-group">
-          <label for="email">Correo:</label>
-          <input type="text" class="form-control" id="email" name="email" value="{{usuario.email}}" minlength="3" maxlength="60">
-        </div>
+            </div>
+          </div>
+          <form action="/nashcode.com/editar_perfil" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="usr">Nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                name="nombre"
+                value="{{usuario.nombre}}"
+                minlength="5"
+                maxlength="60"
+              />
+            </div>
+            <div class="form-group">
+              <label for="alias">Alias:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="alias"
+                name="alias"
+                value="{{usuario.alias}}"
+                minlength="3"
+                maxlength="20"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Correo:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                name="email"
+                value="{{usuario.email}}"
+                minlength="3"
+                maxlength="60"
+              />
+            </div>
 
             <div align="center">
-                <p></p>
-                <button type="submit" class="btn btn-primary btn-lg">Confirmar Cambios</button>
+              <p></p>
+              <button type="submit" class="btn btn-primary btn-lg">
+                Confirmar Cambios
+              </button>
             </div>
-      </form>
+          </form>
         </div>
       </div>
     </div>
 
-      <footer class="bg-light text-center text-lg-start">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-          © NASHCODE
-        </div>
-      </footer>
+    <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © NASHCODE
+      </div>
+    </footer>
 
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </body>
 </html>
