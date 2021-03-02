@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
-from .models import Usuario, Publicacion, Relacion
+from .models import Usuario, Publicacion
 
 # Create your views here.
 class Usuario_actual:
@@ -63,20 +63,9 @@ def home(request):
     return render(request,"home.html",contexto)
 
 def guardado(request):
-    if usuario_actual.logeado == False:
-        return redirect("/nashcode.com")
-
-    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
-    guardadas = Relacion.objects.filter(usuario = usuario, guardado = 1)
-
-    contexto = {
-        "guardadas" : guardadas
-    }
-    return render(request,"guardado.html",contexto)
+    return render(request,"guardado.html")
 
 def busqueda(request):
-    if usuario_actual.logeado == False:
-        return redirect("/nashcode.com")
 
     return render(request,"busqueda.html")
 
@@ -156,88 +145,11 @@ def publicacion(request,id):
 
     publicacion = Publicacion.objects.get(id_publicacion = id)
     usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
-
-    
-    if Relacion.objects.filter(usuario=usuario,publicacion=publicacion).exists() == False:
-        nueva_relacion = Relacion()
-        nueva_relacion.usuario = usuario
-        nueva_relacion.publicacion = publicacion
-        nueva_relacion.like = 0
-        nueva_relacion.guardado = 0
-        nueva_relacion.save()
-
-    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
-    
     contexto = {
         "publicacion" : publicacion,
-        "usuario" : usuario,
-        "relacion" : relacion
+        "usuario" : usuario
     }
     return render(request,"publicacion.html",contexto)
-
-def guardar(request,id):
-    if usuario_actual.logeado == False:
-        return redirect("/nashcode.com")
-
-    publicacion = Publicacion.objects.get(id_publicacion = id)
-    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
-
-    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
-    relacion.guardado = 1
-    relacion.save()
-
-    return redirect("/nashcode.com/publicacion/"+str(id))
-
-def desguardar(request,id):
-    if usuario_actual.logeado == False:
-        return redirect("/nashcode.com")
-
-    publicacion = Publicacion.objects.get(id_publicacion = id)
-    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
-
-    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
-    relacion.guardado = 0
-    relacion.save()
-
-    return redirect("/nashcode.com/publicacion/"+str(id))
-
-def like(request,id):
-    if usuario_actual.logeado == False:
-        return redirect("/nashcode.com")
-
-    publicacion = Publicacion.objects.get(id_publicacion = id)
-    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
-    
-    publicacion.likes += 1
-    publicacion.save()
-
-    publicacion.usuario.likes += 1
-    publicacion.usuario.save()
-
-    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
-    relacion.like = 1
-    relacion.save()
-
-    return redirect("/nashcode.com/publicacion/"+str(id))
-
-def dislike(request,id):
-    if usuario_actual.logeado == False:
-        return redirect("/nashcode.com")
-        
-    publicacion = Publicacion.objects.get(id_publicacion = id)
-    usuario = Usuario.objects.get(id_usuario = usuario_actual.id)
-    
-    publicacion.likes -= 1
-    publicacion.save()
-
-    publicacion.usuario.likes -= 1
-    publicacion.usuario.save()
-
-    relacion = Relacion.objects.get(usuario=usuario,publicacion=publicacion)
-    relacion.like = 0
-    relacion.save()
-
-    return redirect("/nashcode.com/publicacion/"+str(id))
 
 def perfil(request,id):
     if usuario_actual.logeado == False:

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  >
 
   <head>
     <meta charset="utf-8" />
@@ -78,40 +79,13 @@
             </div>
           </form>
 
-          {% if usuario != publicacion.usuario and relacion.guardado == 0 %}
+          {% if usuario != publicacion.usuario %}
           <br /><a
             type="button"
-            href="/nashcode.com/guardar/{{publicacion.id_publicacion}}"
+            href="/nashcode.com/guardado"
             class="btn btn-secondary"
             >Guardar</a
           ><br /><br />
-
-          {% elif usuario != publicacion.usuario and relacion.guardado == 1 %}
-          <br /><a
-            type="button"
-            href="/nashcode.com/desguardar/{{publicacion.id_publicacion}}"
-            class="btn btn-secondary"
-            >Ya no Guardar</a
-          ><br /><br />
-
-          {% endif %}
-
-          {% if usuario != publicacion.usuario and relacion.like == 0 %}
-          <br /><a
-            type="button"
-            href="/nashcode.com/like/{{publicacion.id_publicacion}}"
-            class="btn btn-secondary"
-            >Me Gusta</a
-          ><br /><br />
-
-          {% elif usuario != publicacion.usuario and relacion.like == 1 %}
-          <br /><a
-            type="button"
-            href="/nashcode.com/dislike/{{publicacion.id_publicacion}}"
-            class="btn btn-secondary"
-            >Ya no Me Gusta</a
-          ><br /><br />
-
           {% endif %}
         </div>
       </div>

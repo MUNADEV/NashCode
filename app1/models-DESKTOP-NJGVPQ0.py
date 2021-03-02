@@ -22,9 +22,3 @@ class Publicacion(models.Model):
     likes = models.IntegerField()
     fecha_creacion = models.DateTimeField(auto_now_add = True)
     fecha_modificacion = models.DateTimeField(auto_now = True)
-
-class Relacion(models.Model):
-    usuario = models.ForeignKey(Usuario, null = True, blank = True, on_delete = models.CASCADE)
-    publicacion = models.ForeignKey(Publicacion, null = True, blank = True, on_delete = models.CASCADE)
-    like = models.IntegerField()
-    guardado = models.IntegerField()
