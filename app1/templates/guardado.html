@@ -53,9 +53,9 @@
       <tbody>
         {% for Relacion in guardadas %}
         <tr>
-          <td><a href="/nashcode.com/publicacion/{{Publicacion.id_publicacion}}">{{Relacion.publicacion.titulo}}</a></td>
+          <td><a href="/nashcode.com/publicacion/{{Relacion.publicacion.id_publicacion}}">{{Relacion.publicacion.titulo}}</a></td>
           <td>{{Relacion.publicacion.fecha_modificacion|date:'d-m-Y'}} </td>
-          <td><a href="/nashcode.com/perfil/{{Publicacion.usuario.id_usuario}}">{{Relacion.publicacion.usuario.alias}}</a></td>
+          <td><a href="/nashcode.com/perfil/{{Relacion.usuario.id_usuario}}">{{Relacion.publicacion.usuario.alias}}</a></td>
         </tr>
         {% endfor %}
       </tbody>
